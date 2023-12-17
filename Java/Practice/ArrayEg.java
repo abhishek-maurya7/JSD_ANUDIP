@@ -6,6 +6,7 @@ public class ArrayEg {
 	}
 	
 	public static void main(String[] args) {
+		try {
 			int[] scoree; //declare
 			int score1[];
 			int score2[] = new int[5]; //declare & instantiation
@@ -14,6 +15,7 @@ public class ArrayEg {
 			score2[2] =35;
 			score2[3] =55;
 			score2[4] =59;
+			score2[5] =58;
 			
 			int score[] = {56,39,67,88,39,59,65,88,47,54,88,55,78,69}; //declare, instantiation, initialization
 			
@@ -24,5 +26,9 @@ public class ArrayEg {
 			
 			String namess[] = {"abc","ed","ghj","mop"};
 			ArrayEg.show(namess);
+		} catch(Exception e) {
+			System.out.println(e);
+		}
+			
 	}
 }
