@@ -1,0 +1,24 @@
+body{
+    background-color : #ffe6f2;
+    margin : 25px;
+    border : 2px dashed #d24dff;
+    padding : 10px;
+    }
+    h2{
+        text-align : center ;
+        color : #ff0066;
+        font-family : Arial Black;
+        font-style : italic;
+        text-decoration : underline #ff66a3 dotted 4px; 
+    }
+    h1{
+        text-align:center;
+        color:#cc0052;
+        font-family : Algerian;
+        font-size : 50px;
+        text-shadow : 4px 4px 1px black;
+    }
+    h4{
+        text-transform : uppercase;
+        color : #ff4d94;
+    }

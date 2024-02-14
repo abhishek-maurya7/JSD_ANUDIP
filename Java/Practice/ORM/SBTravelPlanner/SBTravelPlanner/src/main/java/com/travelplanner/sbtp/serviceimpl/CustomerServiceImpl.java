@@ -6,40 +6,47 @@ import com.travelplanner.sbtp.exception.CustomerIDNotFoundException;
 import com.travelplanner.sbtp.repository.CustomerRepository;
 import com.travelplanner.sbtp.service.CustomerService;
 
-//business logic for entity customer
+//business logic for entity customer 
 @Service
-public class CustomerServiceImpl implements CustomerService {
+public class CustomerServiceImpl  implements CustomerService{
 	
 	@Autowired
 	CustomerRepository custRepo;
-	
-	//Registering customer into db table using save of JpaRepository
+
+	//Registering customer into db table using save of jpaRepository
 	@Override
-	public Customer registerCustomer(Customer customer) {
+	public Customer registerCustomer(Customer customer) {	
 		return custRepo.save(customer);
 	}
-
+	//editing customer details using findById() & save() of JpaRepository 
 	@Override
 	public Customer editCustomer(Customer customer, int cId) {
-		// TODO Auto-generated method stub
-		return null;
+	//fetch customer data based on id, if not found throw exception 
+	Customer updatedCustomerdetails = custRepo.findById(cId).orElseThrow(() -> new CustomerIDNotFoundException("Entered Customer id is not proper / Invalid"));
+	
+	//set new values to customer entity
+	updatedCustomerdetails.setCPhone(customer.getCPhone());
+	updatedCustomerdetails.setAddr(customer.getAddr());
+	
+	custRepo.save(updatedCustomerdetails); //saving updated info in Customer Entity
+	return updatedCustomerdetails;
 	}
 
-	//removing an customer record from db table using deleteBy() of JpaRepository
- 	@Override
-	public void removeCusomer(int cId) {
-		custRepo.findById(cId).orElseThrow(
-				() -> new CustomerIDNotFoundException("Entered customed id is not found") 
-		);
+	//removing an customer record from db table using deleteById() of JpaRepository
+	@Override
+	public void removeCustomer(int cId) {
+		//fetch customer data based on id, if not found throw exception 
+		custRepo.findById(cId).orElseThrow(() -> new CustomerIDNotFoundException("Entered Customer id is not proper / Invalid"));
+		
+		//if id found then delete data of customer 
 		custRepo.deleteById(cId);
+		
 	}
-
+	
 	//fetch an customer record from db table using findById() of JpaRepository
 	@Override
 	public Customer fetchCustomerDetail(int cId) {
-		return custRepo.findById(cId).orElseThrow(
-			() -> new CustomerIDNotFoundException("Invalid Customer ID is passed")
-		);
-	}
-
+		//fetch customer data based on id, if not found throw exception 
+		return custRepo.findById(cId).orElseThrow(() -> new CustomerIDNotFoundException("Entered Customer id is not proper / Invalid"));
+	}	
 }

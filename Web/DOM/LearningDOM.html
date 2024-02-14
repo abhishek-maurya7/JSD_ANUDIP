@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="demo">Welcome To The World</p>
+    <p id="demo2" class="class1">We are learning javascript</p>
+
+    <h2 id="demo3" class="class1">Hello JS</h2>
+    <h2 id="demo4">hi</h2>
+
+    <form action="" name="myForm">
+        name: <input type="text" name="fname" required /><br>
+        age: <input type="number" name="age" required />
+        <button type="submit" onclick="myFunction()">Submit</button>
+    </form>
+    <script>
+        document.getElementById("demo").innerHTML = "Bye world.";
+        const demoEles = document.getElementsByTagName("p");
+        document.getElementById("demo3").innerHTML = demoEles[1].innerHTML;     
+    
+        const ele2 = document.getElementsByClassName("class1");
+        document.getElementById("demo4").innerHTML = ele2[0].innerHTML;
+
+        //form
+        function myFunction() {
+            let age = document.forms['myForm']['age'].value;
+            
+            if (age < 18 || age > 30) {
+                alert("Invalid age");
+            }
+            // let x=document.forms["myform"];
+            // document.getElementById("demo4").innerHTML=x.elements[0].value;
+            
+            let x = document.forms["myForm"];
+            document.getElementById("demo4").innerHTML = x.elements[0].value;
+        }
+    </script>
+</body>
+
+</html>

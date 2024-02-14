@@ -1,0 +1,55 @@
+<p [ngStyle]="{'color': 'red'}">We are in component c1</p>
+
+<h1 [ngClass]="{'text-info': title}">{{title}}</h1>
+
+<img [src]="imageUrl" alt="asdh" width="500px">
+
+<button type="submit" (click)="updatePage()">Click me</button>
+
+<br>
+<input type="text" [(ngModel)]="title">
+
+<ul *ngFor="let fruit of fruits">
+    <li>{{fruit}}</li>
+</ul>
+
+<!-- IF-ELSE-IF -->
+<p *ngIf="greeting === 'welcome'; else block2">Thanks</p>
+<ng-template #block2>
+    <p *ngIf="greeting==='hi'; else block3">Hello Humans</p>
+    <ng-template #block3>
+        <p>Bye Humans</p>
+    </ng-template>
+</ng-template>
+
+<!-- 
+//switch -->
+<div [ngSwitch]="day">
+    <div *ngSwitchCase="'0'">Sun</div>
+    <div *ngSwitchCase="'1'">Mon</div>
+    <div *ngSwitchCase="'2'">Tue</div>
+    <div *ngSwitchCase="'3'">Wed</div>
+    <div *ngSwitchCase="'4'">Thu</div>
+    <div *ngSwitchDefault>No day</div>
+</div>
+
+<!-- Pipe -->
+<p>{{title | lowercase}}</p>
+<p>{{title | uppercase}}</p>
+<p>{{todaydate | date:'d/M/y'}}</p>
+<p>{{todaydate | date:'shortTime'}}</p>
+<p>{{123.45 | currency:"INR"}}</p>
+<p>{{124.5665445 | number:'3.3'}}</p>
+<p>{{0.5151 | percent}}</p>
+<p>{{jsonObj | json}}</p>
+
+<!-- Forms validations -->
+<form>
+    <label>Name:</label>
+    <input type="text" name="name" [(ngModel)]="model.name" #name2="ngModel" minlength="4" required/>
+    <div *ngIf="name2.errors?.['minlength']">Name length should be greater than 4</div>
+    <!-- <div [hidden]="name2.untouched" class="alert alert-danger">Name is touched</div><br> -->
+    <label>Age:</label>
+    <input type="number" name="age" [(ngModel)]="model.age"/> <br>
+    <button type="submit" (click)="onSubmit2">Submit</button>
+</form>

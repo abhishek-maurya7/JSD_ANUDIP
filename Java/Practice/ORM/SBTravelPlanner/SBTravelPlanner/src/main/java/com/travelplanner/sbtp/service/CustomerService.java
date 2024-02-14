@@ -12,7 +12,7 @@ public interface CustomerService {
 	Customer editCustomer(Customer customer, int cId);
 	
 	//remove existing customer record based on id from db table
-	void removeCusomer(int cId);    
+	void removeCustomer(int cId);    
 	
 	//fetch customer details based on ID from DB
 	Customer fetchCustomerDetail(int cId);

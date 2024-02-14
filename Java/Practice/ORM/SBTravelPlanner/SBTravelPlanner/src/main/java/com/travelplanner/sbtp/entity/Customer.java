@@ -8,6 +8,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -15,6 +17,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "CustomerInfo")
 public class Customer {
@@ -34,7 +37,7 @@ public class Customer {
 	private String cEmail;
 	
 	@Column(length = 12, nullable = false, unique = true)
-	@NotBlank(message = "Customer number is mandatory")
+	@NotNull(message = "Customer number is mandatory")
 	private long cPhone;
 	
 	@Column(length = 40)
