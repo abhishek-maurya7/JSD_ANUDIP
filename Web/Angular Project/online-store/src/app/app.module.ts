@@ -7,11 +7,17 @@ import { AdminproductComponent } from './adminproduct/adminproduct.component';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 import { FormsModule} from '@angular/forms';
+import { UserProductComponent } from './user-product/user-product.component';
+import { SuccessfulComponent } from './successful/successful.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AdminproductComponent
+    AdminproductComponent,
+    UserProductComponent,
+    SuccessfulComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -19,7 +25,10 @@ import { FormsModule} from '@angular/forms';
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      {path:'adminproduct', component:AdminproductComponent}
+      {path:'adminproduct', component:AdminproductComponent},
+      {path:'userproduct', component:UserProductComponent},
+      {path:'successful', component:SuccessfulComponent},
+      {path:'login', component:LoginComponent},
     ])
   ],
   providers: [

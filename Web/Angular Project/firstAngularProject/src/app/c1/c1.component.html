@@ -1,3 +1,6 @@
+<!-- {{item}} -->
+<input type="text" #newItem>
+<button type="submit" (click)="AddToParent(newItem.value)">Add to parent</button>
 <p [ngStyle]="{'color': 'red'}">We are in component c1</p>
 
 <h1 [ngClass]="{'text-info': title}">{{title}}</h1>

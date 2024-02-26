@@ -7,7 +7,6 @@ import { C1Component } from './c1/c1.component';
 import { C2Component } from './c2/c2.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import path from 'path';
 
 @NgModule({
   declarations: [

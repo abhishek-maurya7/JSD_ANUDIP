@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { hero } from '../hero';
 import { WelcomeServiceService } from '../welcome-service.service';
 
@@ -9,6 +9,12 @@ import { WelcomeServiceService } from '../welcome-service.service';
 })
 export class C1Component {
   constructor(private http:WelcomeServiceService) {}
+  @Input() item = 'asdfuduhaf';
+
+  @Output() throwNewItem = new EventEmitter<string>();
+  AddToParent(value:string) {
+    this.throwNewItem.emit(value);
+  }
   ngOnInit() {
     this.http.welcome();
   }

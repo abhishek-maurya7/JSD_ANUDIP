@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'firstAngularProject';
+  CurrentItem = "asduhdfhuasdufagus";
+
+  items = ["asugf", "ajhdf", "oiashddfui"]
+  additem(newitem:string) {
+    this.items.push(newitem);
+  }
 }

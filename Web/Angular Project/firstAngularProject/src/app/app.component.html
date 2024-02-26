@@ -1,3 +1,12 @@
-<!-- <app-c1></app-c1> -->
+<!-- <app-c1 [item] = "CurrentItem"></app-c1> -->
 <!-- <app-c2></app-c2> -->
-<router-outlet></router-outlet>
+<!-- <router-outlet></router-outlet> -->
+
+
+
+<router-outlet>
+    <app-c1 (throwNewItem)="additem($event)"></app-c1>
+    <ul>
+        <li *ngFor="let i of items">{{i}}</li>
+    </ul>
+</router-outlet>

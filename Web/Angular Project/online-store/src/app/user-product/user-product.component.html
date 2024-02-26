@@ -1,0 +1,59 @@
+<!-- <p>user-product works!</p>
+<p>{{posts | json}}</p> -->
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Stock</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Add to cart</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let i of posts">
+            <td>{{i.id}}</td>
+            <td>{{i.name}}</td>
+            <td>{{i.stk}}</td>
+            <td>{{i.price}}</td>
+            <td><input type="number" class="form-control" min="1" [(ngModel)]="qty"></td>
+            <td><button class="btn btn-warning" type="submit" (click)="addToCart(i.id, i.name, i.price)">Add to cart</button></td>
+        </tr>
+    </tbody>
+</table>
+
+<hr />
+<!-- <p>{{cart1 | json}}</p> -->
+<div class="container mb-5">
+    <div class="row justify-content-center">
+        <form class="card col-md-4 p-2">
+            <label for="name">Name:</label>
+            <input class="form-control" type="text" name="name" id="name" [(ngModel)]="cust.name" /> <br>
+            <label for="number">Number:</label>
+            <input class="form-control" type="number" name="number" id="number" [(ngModel)]="cust.phone" /> <br>
+            <button class="btn btn-primary" type="submit" (click)="order()">Place Order</button>
+        </form>
+    </div>
+</div>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let cart of cart1">
+            <td>{{cart.name}}</td>
+            <td>{{cart.price}}</td>
+            <td>{{cart.qty}}</td>
+            <td>{{cart.total}}</td>
+        </tr>
+        <p>Total amount: {{total}}</p>
+    </tbody>
+</table>
